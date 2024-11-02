@@ -21,12 +21,12 @@ form.onsubmit = async (e) => {
     e.preventDefault();
 
     const userQuery = input.value.trim();
-// TODO Convert string concatenation to template literals and string interpolation.
-    console.log("User input:" + " " + userQuery);
-// TODO Convert string concatenation to template literals and string interpolation.   
-    const queryString = '?units=imperial&appid=a8b8566d914e7ee5f3e4973ebeb94b48&q=' + userQuery;
-// TODO Convert string concatenation to template literals and string interpolation.
-    const fetchURL = weatherURL + queryString;
+// Convert string concatenation to template literals and string interpolation.
+    console.log(`User input: ${userQuery}`);
+// Convert string concatenation to template literals and string interpolation.   
+    const queryString = `?units=imperial&appid=a8b8566d914e7ee5f3e4973ebeb94b48&q=${userQuery}`;
+// Convert string concatenation to template literals and string interpolation.
+    const fetchURL = `${weatherURL}${queryString}`;
     
 
 // TODO Convert a promise-based function (a function call with .then) to instead use async and await.
@@ -71,8 +71,8 @@ const updateDisplay = (data) => {
     const country = data.sys.country; // country code
 // TODO Convert string concatenation to template literals and string interpolation.
     const mapLink = "https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon; // google maps link to location
-// TODO Convert string concatenation to template literals and string interpolation.
-    const weatherIcon = 'https://openweathermap.org/img/wn/' + data.weather[0].icon + '@2x.png'; // weather icon representing current conditions
+// Convert string concatenation to template literals and string interpolation.
+    const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; // weather icon representing current conditions
     const weatherDescription = data.weather[0].description; // desc of current weather
     const currentTemp = data.main.temp; // actual temp
     const feelsLike = data.main.feels_like; // feels like temp
