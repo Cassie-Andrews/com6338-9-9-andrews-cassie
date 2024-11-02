@@ -121,20 +121,20 @@ const updateDisplay = (data) => {
 
 
     const currentTempDisplay = document.createElement('p');
-// TODO Convert string concatenation to template literals and string interpolation.
-    currentTempDisplay.textContent = 'Current: ' + currentTemp + '°F';
+// Convert string concatenation to template literals and string interpolation.
+    currentTempDisplay.textContent = `Current: ${currentTemp}°F`;
     weatherDisplay.appendChild(currentTempDisplay);
 
 
     const feelsLikeDisplay = document.createElement('p');
-// TODO Convert string concatenation to template literals and string interpolation.
-    feelsLikeDisplay.textContent = 'Feels like: ' + feelsLike + '°F';
+// Convert string concatenation to template literals and string interpolation.
+    feelsLikeDisplay.textContent = `Feels like: ${feelsLike}°F`;
     weatherDisplay.appendChild(feelsLikeDisplay);
 
 
     const lastUpdatedDisplay = document.createElement('p');
-// TODO Convert string concatenation to template literals and string interpolation.
-    lastUpdatedDisplay.textContent = 'Last updated: ' + timeString;
+// Convert string concatenation to template literals and string interpolation.
+    lastUpdatedDisplay.textContent = `Last updated: ${timeString}`;
     weatherDisplay.appendChild(lastUpdatedDisplay);
     ;
 }
