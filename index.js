@@ -68,19 +68,17 @@ const showLocationNotFound = () => {
 // Convert a function declaration into a arrow function.
 const updateDisplay = (data) => {
     weatherDisplay.innerHTML = ''; // clear
-// TODO Convert some object-related code to use ES6 destructuring.
-    const city = data.name; // city code
-// TODO Convert some object-related code to use ES6 destructuring.
-    const country = data.sys.country; // country code
-// TODO Convert string concatenation to template literals and string interpolation.
-    const mapLink = "https://www.google.com/maps/search/?api=1&query=" + data.coord.lat + "," + data.coord.lon; // google maps link to location
+// Convert some object-related code to use ES6 destructuring.
 // Convert string concatenation to template literals and string interpolation.
-    const weatherIcon = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`; // weather icon representing current conditions
-    const weatherDescription = data.weather[0].description; // desc of current weather
-    const currentTemp = data.main.temp; // actual temp
-    const feelsLike = data.main.feels_like; // feels like temp
+    const { name: city, sys: { country }, coord: { lat, lon }, weather, main, dt } = data;
+    const mapLink = `https://www.google.com/maps/search/?api=1&query=${lat},${lon}`; 
+// Convert string concatenation to template literals and string interpolation.
+    const weatherIcon = `https://openweathermap.org/img/wn/${weather[0].icon}@2x.png`; // weather icon representing current conditions
+    const weatherDescription = weather[0].description; // desc of current weather
+    const currentTemp = main.temp; // actual temp
+    const feelsLike = main.feels_like; // feels like temp
     
-    const dataTime = data.dt * 1000; // time of data calculation, unix, UTC
+    const dataTime = dt * 1000; // time of data calculation, unix, UTC
     const date = new Date(dataTime); // time last updated   
     const timeString = date.toLocaleTimeString('en-US', {
         hour: 'numeric',
