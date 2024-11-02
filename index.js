@@ -84,21 +84,21 @@ const updateDisplay = (data) => {
         minute: '2-digit'
     })
 
-// TODO Convert string concatenation to template literals and string interpolation.
-    console.log("City:" + " " + city);
-    console.log("Country:" + " " + country);
-    console.log("Map link:" + " " + mapLink);
-    console.log("Icon link:" + " " + weatherIcon);
-    console.log("Description:" + " " + weatherDescription);
-    console.log("Temp:" + " " + currentTemp);
-    console.log("Feels like temp:" + " " + feelsLike);
-    console.log("dt:" + " " + dataTime);
-    console.log("Last updated:" + " " + timeString);
+// Convert string concatenation to template literals and string interpolation.
+    console.log(`City: ${city}`);
+    console.log(`Country: ${country}`);
+    console.log(`Map link: ${mapLink}`);
+    console.log(`Icon link: ${weatherIcon}`);
+    console.log(`Description: ${weatherDescription}`);
+    console.log(`Temp: ${currentTemp}`);
+    console.log(`Feels like temp: ${feelsLike}`);
+    console.log(`dt: ${dataTime}`);
+    console.log(`Last updated: ${timeString}`);
 
 
     const locationDisplay = document.createElement('h2');
-// TODO Convert string concatenation to template literals and string interpolation.
-    locationDisplay.textContent = city + ', ' + country;
+// Convert string concatenation to template literals and string interpolation.
+    locationDisplay.textContent = `${city}, ${country}`;
     weatherDisplay.appendChild(locationDisplay);
 
 
