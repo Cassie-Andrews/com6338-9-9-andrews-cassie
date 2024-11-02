@@ -29,28 +29,31 @@ form.onsubmit = async (e) => {
     const fetchURL = `${weatherURL}${queryString}`;
     
 
-// TODO Convert a promise-based function (a function call with .then) to instead use async and await.
-    fetch(fetchURL)
-        .then(function(response) {
-// TODO Convert string concatenation to template literals and string interpolation.
-            console.log("Response Status:" + " " + response.status);
-            // HANDLE LOCATION NOT FOUND
-            if (response.status === 404) { // notify user location not found
-                showLocationNotFound();
-                input.value = ''; // clear inpur value
-                return; // exit if not found
-            }  
-            // HANDLE LOCATION FOUND
-            return response.json(); // if search term found, retrieve data
-        })
-// TODO Convert a promise-based function (a function call with .then) to instead use async and await.
-        .then(function(data) { // UPDATE DISPLAY
-            if (data) {
-                console.log(data);
-                updateDisplay(data); // call function to display weather info
-                input.value = ''; // clear input value
-            }
-        });
+// Convert a promise-based function (a function call with .then) to instead use async and await.
+    try {
+        const response = await fetch(fetchURL)
+// Convert string concatenation to template literals and string interpolation.
+        console.log(`Response Status: ${response.status}`);
+        // HANDLE LOCATION NOT FOUND
+        if (response.status === 404) { // notify user location not found
+            showLocationNotFound();
+            input.value = ''; // clear inpur value
+            return; // exit if not found
+        } 
+
+        // HANDLE LOCATION FOUND
+        const data = await response.json(); // if search term found, retrieve data
+
+// Convert a promise-based function (a function call with .then) to instead use async and await.
+        // UPDATE DISPLAY
+        if (data) {
+            console.log(data);
+            updateDisplay(data); // call function to display weather info
+            input.value = ''; // clear input value
+        }
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
 }
 
 // Convert a function declaration into a arrow function.
