@@ -120,6 +120,7 @@ const updateDisplay = (data) => {
     weatherDescriptionDisplay.textContent = weatherDescription;
     weatherDisplay.appendChild(weatherDescriptionDisplay);
 
+    weatherDisplay.appendChild(document.createElement('br'));
 
     const currentTempDisplay = document.createElement('p');
 // Convert string concatenation to template literals and string interpolation.
@@ -132,6 +133,7 @@ const updateDisplay = (data) => {
     feelsLikeDisplay.textContent = `Feels like: ${feelsLike}°F`;
     weatherDisplay.appendChild(feelsLikeDisplay);
 
+    weatherDisplay.appendChild(document.createElement('br'));
 
     const lastUpdatedDisplay = document.createElement('p');
 // Convert string concatenation to template literals and string interpolation.
